@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>DockModdz Bate Papo</title></title>
+  <link rel="icon" href="assets/img/dockmoddzlogo.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+  <div id="perfil">
+    <img src="assets/img/logoo.png"><br>
+</div>
+  <script>
+    
+    function adicionarMensagem() {
+
+      const mensagem = document.querySelector("#formulario input[type='text']").value;
+      const nomeUsuario = "Bate Papo Do DockModdz";
+      const avatar = "https://cdn.discordapp.com/attachments/1068731047870738492/1073248564446253219/logoo.png";
+      const botAvatar = "https://cdn.discordapp.com/attachments/1068731047870738492/1073248564446253219/logoo.png";
+      const botNome = "Bot Do Dock";
+  
+
+      if (mensagem === "oi") {
+        const respostaBot = "Olá, meu nome é dockmoddz aqui é um chat publico para todos vcs babys!?";
+  
+        const mensagens = document.querySelector("#mensagens");
+        const novaMensagemUsuario = document.createElement("li");
+        novaMensagemUsuario.innerHTML = `
+          <img src="${avatar}" width="50" height="50" />
+          <span>${nomeUsuario}: ${mensagem}</span>
+        `;
+        
+        mensagens.appendChild(novaMensagemUsuario);
+  
+        const novaMensagemBot = document.createElement("li");
+        novaMensagemBot.innerHTML = `
+          <img src="${botAvatar}" width="50" height="50" />
+          <span>${botNome}: ${respostaBot}</span>
+        `;
+        mensagens.appendChild(novaMensagemBot);
+        
+      } else {
+
+        const mensagens = document.querySelector("#mensagens");
+        const novaMensagem = document.createElement("li");
+        novaMensagem.innerHTML = `
+          <img src="${avatar}" width="50" height="50" />
+          <span>${nomeUsuario}: ${mensagem}</span>
+        `;
+        mensagens.appendChild(novaMensagem);
+      }
+  
+      document.querySelector("#formulario input[type='text']").value = "";
+  
+      return false;
+    }
+
+    if (mensagem === ".servidor") {
+        const novaBolinha = document.createElement("div");
+        novaBolinha.setAttribute("class", "bolinha");
+        mensagens.appendChild(novaBolinha);
+      }
+
+
+  </script>
+  
+   
+</head>
+
+<body>
+  
+  <header>
+    <h1>DockModdz BatePapo</h1>
+</header>
+
+  <main>
+    <section id="chat">
+      <h2>Bate Papo</h2>
+      <ul id="mensagens">
+        <li>Olá, Bem Vindo ao meu Bate Papo! &copy;  DockModdz</li>
+      </ul>
+      <form id="formulario" onsubmit="return adicionarMensagem();">
+        <input type="text" placeholder="Digite sua mensagem aqui">
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  <button id="botao-servidor" style="display: none;">Servidor</button>
+
+</body>
+
+</html>
